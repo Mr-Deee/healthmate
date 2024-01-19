@@ -14,6 +14,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _phoneNumber = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   final TextEditingController _repassController = TextEditingController();
 
@@ -376,9 +377,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
         "Email": _emailController.text.trim().toString(),
         "FullName": _fullnameController.text.trim().toString(),
-        "Location": lastnameController.text.trim().toString(),
-        "GasStationNumber": fullPhoneNumber,
-        "Password": passwordController.text.trim().toString(),
+        "phoneNumber": _phoneNumber.text.trim().toString(),
+        "Password": _passController.text.trim().toString(),
 
       };
       gasStation.child(firebaseUser!.uid).set(userDataMap);
