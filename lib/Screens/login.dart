@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthmate/Screens/signup.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key,  this.controller});
@@ -160,9 +161,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        widget.controller!.animateToPage(1,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.ease);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SignUpScreen(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Sign Up',

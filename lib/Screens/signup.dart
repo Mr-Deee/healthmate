@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healthmate/Screens/login.dart';
+
+import '../Models/displaytoast.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key,  this.controller});
@@ -10,6 +13,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _fullnameController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   final TextEditingController _repassController = TextEditingController();
 
@@ -52,6 +56,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 const SizedBox(
                   height: 40,
+                ),
+                SizedBox(
+                  height: 56,
+                  child: TextField(
+                    controller: _emailController,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Color(0xFF393939),
+                      fontSize: 13,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                    ),
+                    decoration: const InputDecoration(
+                      labelText: 'FullName',
+                      labelStyle: TextStyle(
+                        color: Color(0xFF087987),
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: Color(0xFF837E93),
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: Color(0xFF9F7BFF),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 56,
@@ -270,4 +310,100 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
+
+
+
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+
+  User? firebaseUser;
+  User? currentfirebaseUser;
+  Future<void> registerNewUser(BuildContext context) async {
+    // String fullPhoneNumber = '$selectedCountryCode${phonecontroller.text.trim()
+    //     .toString()}';
+
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Dialog(
+              backgroundColor: Colors.transparent,
+              child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0)
+                  ),
+                  child: Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            SizedBox(width: 6.0,),
+                            CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.black),),
+                            SizedBox(width: 26.0,),
+                            Text("Signing up,please wait...")
+
+                          ],
+                        ),
+                      ))));
+        });
+
+
+    firebaseUser = (await _firebaseAuth
+        .createUserWithEmailAndPassword(
+        email: _emailController.text, password: _passController.text)
+        .catchError((errMsg) {
+      Navigator.pop(context);
+      displayToast("Error" + errMsg.toString(), context);
+    }))
+        .user;
+
+
+    if (firebaseUser != null) // user created
+
+        {
+      //save use into to database
+
+      Map userDataMap = {
+        // "email": emailController.text.trim().toString(),
+        // "Name": emailController.text.trim().toString(),
+        // "Name": emailController.text.trim().toString(),
+
+        "Email": _emailController.text.trim().toString(),
+        "FullName": _fullnameController.text.trim().toString(),
+        "Location": lastnameController.text.trim().toString(),
+        "GasStationNumber": fullPhoneNumber,
+        "Password": passwordController.text.trim().toString(),
+
+      };
+      gasStation.child(firebaseUser!.uid).set(userDataMap);
+      // admin.child(firebaseUser!.uid).set(userDataMap);
+
+      currentfirebaseUser = firebaseUser;
+      // registerInfirestore(context);
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              AuthPage(),
+        ),
+      );
+    } else {
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) {
+      //     return login();
+      //   }),
+      // );      // Navigator.pop(context);
+      // error occured - display error
+      displayToast("user has not been created", context);
+    }
+  }
+
 }
