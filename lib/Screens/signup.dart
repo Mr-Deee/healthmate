@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healthmate/Screens/login.dart';
+import 'package:healthmate/main.dart';
 
 import '../Models/displaytoast.dart';
 
@@ -381,7 +382,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         "Password": _passController.text.trim().toString(),
 
       };
-      gasStation.child(firebaseUser!.uid).set(userDataMap);
+
+      Users.child(firebaseUser!.uid).set(userDataMap);
       // admin.child(firebaseUser!.uid).set(userDataMap);
 
       currentfirebaseUser = firebaseUser;
@@ -391,7 +393,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         context,
         MaterialPageRoute(
           builder: (context) =>
-              AuthPage(),
+              LoginScreen(),
         ),
       );
     } else {
