@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthmate/Screens/login.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key,  this.controller});
@@ -19,19 +20,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 52,
+          ),
+
           Padding(
             padding: const EdgeInsets.only(top: 0),
             child: Image.asset(
               "assets/images/Logo6.png",
               width: 428,
-              height: 457,
+              height: 207,
             ),
           ),
           const SizedBox(
-            height: 18,
+            height: 8,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Column(
               textDirection: TextDirection.ltr,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Text(
                   'Sign up',
                   style: TextStyle(
-                    color: Color(0xFF755DC1),
+                    color: Color(0xFF087987),
                     fontSize: 27,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
@@ -62,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     decoration: const InputDecoration(
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                        color: Color(0xFF755DC1),
+                        color: Color(0xFF087987),
                         fontSize: 15,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -88,92 +93,99 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 17,
                 ),
                 SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(
-                        width: 147,
-                        height: 56,
-                        child: TextField(
-                          controller: _passController,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Color(0xFF393939),
-                            fontSize: 13,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                          ),
-                          decoration: const InputDecoration(
-                            labelText: 'Password',
-                            hintText: 'Create Password',
-                            hintStyle: TextStyle(
-                              color: Color(0xFF837E93),
-                              fontSize: 10,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 137,
+                          height: 56,
+                          child: TextField(
+                            controller: _passController,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Color(0xFF393939),
+                              fontSize: 13,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
                             ),
-                            labelStyle: TextStyle(
-                              color: Color(0xFF755DC1),
-                              fontSize: 15,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Color(0xFF837E93),
+                            decoration: const InputDecoration(
+                              labelText: 'Password',
+                              hintText: 'Create Password',
+                              hintStyle: TextStyle(
+                                color: Color(0xFF087987),
+                                fontSize: 10,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400,
                               ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Color(0xFF9F7BFF),
+                              labelStyle: TextStyle(
+                                color: Color(0xFF087987),
+                                fontSize: 15,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color(0xFF837E93),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color(0xFF9F7BFF),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: 147,
-                        height: 56,
-                        child: TextField(
-                          controller: _repassController,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Color(0xFF393939),
-                            fontSize: 13,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w400,
-                          ),
-                          decoration: const InputDecoration(
-                            labelText: 'phone',
-                            hintText: 'Confirm Password',
-                            hintStyle: TextStyle(
-                              color: Color(0xFF837E93),
-                              fontSize: 10,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 130,
+                          height: 56,
+                          child: TextField(
+                            controller: _repassController,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Color(0xFF393939),
+                              fontSize: 13,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
                             ),
-                            labelStyle: TextStyle(
-                              color: Color(0xFF755DC1),
-                              fontSize: 15,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Color(0xFF837E93),
+                            decoration: const InputDecoration(
+                              labelText: 'phone',
+                              hintText: 'Confirm Password',
+                              hintStyle: TextStyle(
+                                color: Color(0xFF087987),
+                                fontSize: 10,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400,
                               ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Color(0xFF9F7BFF),
+                              labelStyle: TextStyle(
+                                color: Color(0xFF087987),
+                                fontSize: 15,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color(0xFF837E93),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color(0xFF9F7BFF),
+                                ),
                               ),
                             ),
                           ),
@@ -197,7 +209,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             curve: Curves.ease);
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF9F7BFF),
+                        backgroundColor: const Color(0xFF087987),
                       ),
                       child: const Text(
                         'Create account',
@@ -231,14 +243,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        widget.controller!.animateToPage(0,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.ease);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                LoginScreen(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Log In ',
                         style: TextStyle(
-                          color: Color(0xFF755DC1),
+                          color: Color(0xFF087987),
                           fontSize: 13,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,

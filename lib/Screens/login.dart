@@ -21,9 +21,9 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 15),
             child: Image.asset(
-              "assets/images/vector-1.png",
-              width: 413,
-              height: 457,
+              "assets/images/Logo6.png",
+              width: 428,
+              height: 207,
             ),
           ),
           const SizedBox(
@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Text(
                   'Log In',
                   style: TextStyle(
-                    color: Color(0xFF755DC1),
+                    color: Color(0xFF087987),
                     fontSize: 27,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _emailController,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Color(0xFF393939),
+                    color:Color(0xFF087987),
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     labelStyle: TextStyle(
-                      color: Color(0xFF755DC1),
+                      color: Color(0xFF087987),
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(
                         width: 1,
-                        color: Color(0xFF837E93),
+                        color: Color(0xFF087987),
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _passController,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Color(0xFF393939),
+                    color: Color(0xFF087987),
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     labelStyle: TextStyle(
-                      color: Color(0xFF755DC1),
+                      color: Color(0xFF087987),
                       fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF9F7BFF),
+                        backgroundColor: const Color(0xFF087987),
                       ),
                       child: const Text(
                         'Sign In',
@@ -167,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: const Text(
                         'Sign Up',
                         style: TextStyle(
-                          color: Color(0xFF755DC1),
+                          color:  Color(0xFF837E93),
                           fontSize: 13,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Text(
                   'Forget Password?',
                   style: TextStyle(
-                    color: Color(0xFF755DC1),
+                    color:Color(0xFF087987),
                     fontSize: 13,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
