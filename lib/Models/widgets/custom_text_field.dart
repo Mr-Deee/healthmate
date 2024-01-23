@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../color_resources.dart';
 
-import '../color_resources.dart';
-import '../dimensions.dart';
+
+
 
 class CustomTextField extends StatefulWidget {
   final String? hintText;
