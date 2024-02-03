@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../main.dart';
+
 class postdrug extends StatefulWidget {
   const postdrug({super.key});
 
@@ -109,9 +111,17 @@ class _postdrugState extends State<postdrug> {
                   ),
                 ),
               ),
+              SizedBox(height: 16),
+              FloatingActionButton(
+                onPressed: _uploadData,
+                tooltip: 'Submit',
+                child: Icon(Icons.cloud_upload),
+              ),
             ],
+
           ),
         ]),
+
       ),
     ));
   }
@@ -135,7 +145,7 @@ class _postdrugState extends State<postdrug> {
     String imageUrl = await storageReference.getDownloadURL();
 
     final databaseReference = FirebaseDatabase.instance.ref();
-    databaseReference.child("medicines").push().set({
+    Usersdb.child("medicines").update({
       'drugName': drugName,
       'dosage': dosage,
       'imageUrl': imageUrl,
