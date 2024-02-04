@@ -152,7 +152,7 @@ class _homepageState extends State<homepage> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Admin_selection(
                                     image: 'assets/images/faq.png',
-                                    title: '',
+                                    title: 'Talk To Pharmacist',
                                     ontap: () {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
