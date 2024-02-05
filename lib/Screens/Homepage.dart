@@ -77,7 +77,7 @@ class _homepageState extends State<homepage> {
                                   padding: const EdgeInsets.only(
                                       left: 20.0, top: 25.0),
                                   child: Text(
-                                    "Welcome to Total House Clinic\n  ",
+                                    "Welcome to Healthmate\n  ",
                                     style: TextStyle(
                                         fontSize: 30,
                                         fontWeight: FontWeight.bold,
