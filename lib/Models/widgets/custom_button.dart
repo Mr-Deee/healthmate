@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../color_resources.dart';
+import '../../color_resources.dart';
+
 
 class CustomButton extends StatelessWidget {
   final Function? onTap;
