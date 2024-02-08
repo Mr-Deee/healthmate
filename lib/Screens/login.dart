@@ -1,5 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:healthmate/Screens/Homepage.dart';
 import 'package:healthmate/Screens/signup.dart';
+
+import '../Models/Assistants/assistantmethods.dart';
+import '../Models/displaytoast.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key,  this.controller});
@@ -127,7 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 329,
                       height: 56,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          loginAndAuthenticateUser(context);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF087987),
                         ),
@@ -201,5 +208,81 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  void loginAndAuthenticateUser(BuildContext context) async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Dialog(
+              backgroundColor: Colors.transparent,
+              child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(40.0)),
+                  child: Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 6.0,
+                            ),
+                            CircularProgressIndicator(
+                              valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.black),
+                            ),
+                            SizedBox(
+                              width: 26.0,
+                            ),
+                            Text("Loging In,please wait")
+                          ],
+                        ),
+                      ))));
+        });
+
+    final User? firebaseUser = (await _firebaseAuth
+        .signInWithEmailAndPassword(
+      email: _emailController.text.toString().trim(),
+      password: _passController.text.toString().trim(),
+    )
+        .catchError((errMsg) {
+      Navigator.pop(context);
+      displayToast("Error" + errMsg.toString(), context);
+    }))
+        .user;
+    try {
+      UserCredential userCredential =
+      await _firebaseAuth.signInWithEmailAndPassword(
+          email: _emailController.text, password: _passController.text);
+
+      // const String adminEmail = 'admin@gmail.com';
+      // if(emailController.text==adminEmail){
+      //
+      //   Navigator.pushReplacement(
+      //       context,
+      //       MaterialPageRoute(
+      //           builder: (context) => admin()));
+      //
+      // }
+      // else
+      if (firebaseUser != null) {
+        AssistantMethod.getCurrentOnlineUserInfo(context);
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => homepage()),
+                (Route<dynamic> route) => false);
+        displayToast("Logged-in ", context);
+      } else {
+        displayToast("Error: Cannot be signed in", context);
+      }
+    } catch (e) {
+      // handle error
+    }
   }
 }

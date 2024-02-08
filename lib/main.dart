@@ -2,8 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:healthmate/Screens/Homepage.dart';
 import 'package:provider/provider.dart';
 
+import 'Models/Users.dart';
 import 'Screens/login.dart';
 import 'Screens/signup.dart';
 import 'firebase_options.dart';
@@ -15,25 +17,24 @@ void main() async {
   );
   runApp(
   //
-  //     MultiProvider(providers: [
-  //   // ChangeNotifierProvider<DatabaseService1>(
-  //   //   create: (context) => DatabaseService1(),
-  //   // ),
-  //   // ChangeNotifierProvider<Users>(
-  //   //   create: (context) => Users(),
-  //   // ),
-  //   // ChangeNotifierProvider<GasStation>(
-  //   //   create: (context) => GasStation(),
-  //   // ),
+      MultiProvider(providers: [
+    // ChangeNotifierProvider<DatabaseService1>(
+    //   create: (context) => DatabaseService1(),
+    // ),
+    ChangeNotifierProvider<Users>(
+      create: (context) => Users(),
+     ),
+    // ChangeNotifierProvider<GasStation>(
+    //   create: (context) => GasStation(),
+    // ),
   //
   //   //
   //   //
   //   //
-  // ],
 
-      //child:
+     ], child:
       MyApp()
-  //)
+  )
   );
 }
 
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'HealthMate',
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
           "/login": (context) => LoginScreen(),
           // "/search": (context) => SearchScreen(),
           "/SignUp": (context) => SignUpScreen(),
-          // "/Homepage": (context) =>Homepage(),
+        "/Homepage": (context) =>homepage(),
           // "/deactivatedusers": (context) =>deactivatedusers(),
         });
 
