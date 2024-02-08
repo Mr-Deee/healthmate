@@ -69,7 +69,7 @@ class BottomUserInfo extends StatelessWidget {
                                   ),
                                   if (Provider.of<Users>(context).userInfo?.firstname != null)
                                     Text(
-                                      Provider.of<Users>(context).userInfo!.FirstName!,
+                                      Provider.of<Users>(context).userInfo!.firstname!,
 
 
                                     style: TextStyle(
@@ -134,7 +134,7 @@ class BottomUserInfo extends StatelessWidget {
                                       print('yes');
                                       FirebaseAuth.instance.signOut();
                                       Navigator.pushNamedAndRemoveUntil(
-                                          context, SignInPage.idScreen, (route) => false);
+                                          context, "/login", (route) => false);
                                       // Navigator.of(context).pop();
                                     },
                                   ),

@@ -41,6 +41,8 @@ dependencies:
   fluttertoast: ^8.2.4
   firebase_database: ^10.4.0
   permission_handler: ^10.0.0
+  animate_do: ^2.0.0
+  bouncing_widget: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

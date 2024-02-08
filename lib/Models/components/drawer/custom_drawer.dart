@@ -1,11 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:totalclinic/Pages/DoctorProfile.dart';
-
-import 'package:totalclinic/Pages/home.dart';
-
-import '../../Pages/OfficeLocations.dart';
 import 'bottom_user_info.dart';
 import 'custom_list_tile.dart';
 import 'header.dart';
@@ -52,10 +47,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   icon: Icons.home_outlined,
                   title: 'Home',
                   infoCount: 0,
-               ontap: () {   Navigator.push(
-                 context,
-                 MaterialPageRoute(
-                     builder: (context) =>  HomeScreen ())); },
+               ontap: () {
+
+                 //    Navigator.push(
+                 // context,
+                 // MaterialPageRoute(
+                 //     builder: (context) =>  HomeScreen ()));
+
+                    },
                 ),
               //
               // CustomListTile(
@@ -71,10 +70,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 infoCount: 0,
                 doHaveMoreOptions: Icons.arrow_forward_ios,
 
-                ontap: () {  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>  officelocation ()));},
+                ontap: () {
+
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) =>  officelocation ()));
+
+
+                  },
               ),
               // CustomListTile(
               //   isCollapsed: _isCollapsed,
@@ -93,11 +97,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 title: 'Doctors',
                 infoCount: 0,
                 doHaveMoreOptions: Icons.arrow_forward_ios,
-                ontap: () { Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                        DoctorProfilePage()));  },
+                ontap: () {
+
+
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) =>
+                  //       DoctorProfilePage()));
+
+                  },
               ),
 
               const Divider(color: Colors.grey),

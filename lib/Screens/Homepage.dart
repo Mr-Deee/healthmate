@@ -4,6 +4,7 @@ import 'package:healthmate/Models/Users.dart';
 import 'package:provider/provider.dart';
 
 import '../Models/components/drawer/custom_drawer.dart';
+import '../Models/widgets/AdminSelection.dart';
 
 class homepage extends StatefulWidget {
   const homepage({super.key});
@@ -135,40 +136,40 @@ class _homepageState extends State<homepage> {
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  askaquestion()));
-                                    },
-                                    child: Admin_selection(
-                                      image: 'assets/images/consultancy.png',
-                                      title: 'Ask a Question',
-                                    ),
-                                  ),
-                                ),
+                                // Padding(
+                                //   padding: const EdgeInsets.all(8.0),
+                                //   child: GestureDetector(
+                                //     onTap: () {
+                                //       Navigator.of(context).push(
+                                //           MaterialPageRoute(
+                                //               builder: (context) =>
+                                //                   askaquestion()));
+                                //     },
+                                //     child: Admin_selection(
+                                //       image: 'assets/images/consultancy.png',
+                                //       title: 'Ask a Question',
+                                //     ),
+                                //   ),
+                                // ),
 
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DoctorProfilePage()));
-                                    },
-                                    child: Admin_selection(
-                                      image: 'assets/images/lookup.png',
-                                      title: 'Doctor Lookup',
-                                      ontap: () {
-                                        //  initiatePhoneCall('tel:$_phone');
-                                      },
-                                    ),
-                                  ),
-                                ),
+                                // Padding(
+                                //   padding: const EdgeInsets.all(8.0),
+                                //   child: GestureDetector(
+                                //     onTap: () {
+                                //       Navigator.of(context).push(
+                                //           MaterialPageRoute(
+                                //               builder: (context) =>
+                                //                   DoctorProfilePage()));
+                                //     },
+                                //     child: Admin_selection(
+                                //       image: 'assets/images/lookup.png',
+                                //       title: 'Doctor Lookup',
+                                //       ontap: () {
+                                //         //  initiatePhoneCall('tel:$_phone');
+                                //       },
+                                //     ),
+                                //   ),
+                                // ),
 
 
                                 Padding(
@@ -188,7 +189,7 @@ class _homepageState extends State<homepage> {
                         ],
                       ),
                     ),
-                    sectionTitle(context, "Departments"),
+                    // sectionTitle(context, "Departments"),
                     Container(
                       color: const Color(0xFFFFFFFF),
                       height: 200,
@@ -197,92 +198,92 @@ class _homepageState extends State<homepage> {
                         padding: EdgeInsets.all(10),
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => Dentist()));
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 180,
-                                child: Row(
-                                  children: [
-                                    Image.asset("assets/images/tooth.png",
-                                        height: 120),
-                                    Center(
-                                        child: Text(
-                                          "Dentist",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16),
-                                        )),
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFB3CA2E6),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(25),
-                                      topLeft: Radius.circular(25),
-                                      bottomLeft: Radius.circular(25),
-                                      bottomRight: Radius.circular(25)),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 5,
-                                      blurRadius: 7,
-                                      offset: Offset(
-                                          0, 3), // changes position of shadow
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => pharmacy()));
-                              },
-                              child: Container(
-                                width: 180,
-                                child: Row(
-                                  children: [
-                                    Image.asset("assets/images/pill.png",
-                                        height: 60),
-                                    Center(
-                                        child: Text(
-                                          "Pharmacy",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16),
-                                        )),
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFB3CA2E6),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(25),
-                                      topLeft: Radius.circular(25),
-                                      bottomLeft: Radius.circular(25),
-                                      bottomRight: Radius.circular(25)),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black26,
-                                      spreadRadius: 5,
-                                      blurRadius: 7,
-                                      offset: Offset(
-                                          0, 3), // changes position of shadow
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                          // GestureDetector(
+                          //   onTap: () {
+                          //     Navigator.of(context).push(MaterialPageRoute(
+                          //         builder: (context) => Dentist()));
+                          //   },
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(8.0),
+                          //     child: Container(
+                          //       width: 180,
+                          //       child: Row(
+                          //         children: [
+                          //           Image.asset("assets/images/tooth.png",
+                          //               height: 120),
+                          //           Center(
+                          //               child: Text(
+                          //                 "Dentist",
+                          //                 style: TextStyle(
+                          //                     color: Colors.white,
+                          //                     fontWeight: FontWeight.bold,
+                          //                     fontSize: 16),
+                          //               )),
+                          //         ],
+                          //       ),
+                          //       decoration: BoxDecoration(
+                          //         color: Color(0xFFB3CA2E6),
+                          //         borderRadius: BorderRadius.only(
+                          //             topRight: Radius.circular(25),
+                          //             topLeft: Radius.circular(25),
+                          //             bottomLeft: Radius.circular(25),
+                          //             bottomRight: Radius.circular(25)),
+                          //         boxShadow: [
+                          //           BoxShadow(
+                          //             color: Colors.grey.withOpacity(0.5),
+                          //             spreadRadius: 5,
+                          //             blurRadius: 7,
+                          //             offset: Offset(
+                          //                 0, 3), // changes position of shadow
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: GestureDetector(
+                          //     onTap: () {
+                          //       Navigator.of(context).push(MaterialPageRoute(
+                          //           builder: (context) => pharmacy()));
+                          //     },
+                          //     child: Container(
+                          //       width: 180,
+                          //       child: Row(
+                          //         children: [
+                          //           Image.asset("assets/images/pill.png",
+                          //               height: 60),
+                          //           Center(
+                          //               child: Text(
+                          //                 "Pharmacy",
+                          //                 style: TextStyle(
+                          //                     color: Colors.white,
+                          //                     fontWeight: FontWeight.bold,
+                          //                     fontSize: 16),
+                          //               )),
+                          //         ],
+                          //       ),
+                          //       decoration: BoxDecoration(
+                          //         color: Color(0xFFB3CA2E6),
+                          //         borderRadius: BorderRadius.only(
+                          //             topRight: Radius.circular(25),
+                          //             topLeft: Radius.circular(25),
+                          //             bottomLeft: Radius.circular(25),
+                          //             bottomRight: Radius.circular(25)),
+                          //         boxShadow: [
+                          //           BoxShadow(
+                          //             color: Colors.black26,
+                          //             spreadRadius: 5,
+                          //             blurRadius: 7,
+                          //             offset: Offset(
+                          //                 0, 3), // changes position of shadow
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                           // Padding(
                           //   padding: const EdgeInsets.all(8.0),
                           //   child: GestureDetector(
