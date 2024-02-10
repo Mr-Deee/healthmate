@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthmate/Models/Users.dart';
+import 'package:healthmate/Screens/postdrug.dart';
 import 'package:provider/provider.dart';
 
 import '../Models/components/drawer/custom_drawer.dart';
@@ -18,13 +19,13 @@ class _homepageState extends State<homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: GlobalAppBar(),
+
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width * 1.0,
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color:Color(0xFF087987),
           ),
           alignment: Alignment.center,
           child: Column(
@@ -44,18 +45,8 @@ class _homepageState extends State<homepage> {
                     ),
                 ]),
               ),
-              //
-              // Padding(
-              //   padding: const EdgeInsets.only(left:108.0, top: 5.0),
-              //   child: Row(
-              //     children: [
-              //       Text("Welcome",
-              //
-              //         style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 10),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+
+
 
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, top: 18.0),
@@ -65,30 +56,32 @@ class _homepageState extends State<homepage> {
                       height: 160,
                       width: 300,
                       child: Card(
-                        color: Colors.white54,
+                        color: Colors.white10,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.2)),
-                        shadowColor: Colors.tealAccent,
-                        child: Column(
-                          children: [
-                            Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20.0, top: 25.0),
-                                  child: Text(
-                                    "Welcome to Healthmate\n  ",
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                        shadowColor: Color(0xFF087987),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20.0, top: 25.0),
+                                    child: Text(
+                                      "Welcome to Healthmate\n",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black87),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            // Text("Swipe left\n  ",style: TextStyle( fontSize: 10,fontWeight: FontWeight.bold, color: Colors.blue)
-                            //),
-                          ],
+                                ],
+                              ),
+                              // Text("Swipe left\n  ",style: TextStyle( fontSize: 10,fontWeight: FontWeight.bold, color: Colors.blue)
+                              //),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -136,50 +129,34 @@ class _homepageState extends State<homepage> {
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                // Padding(
-                                //   padding: const EdgeInsets.all(8.0),
-                                //   child: GestureDetector(
-                                //     onTap: () {
-                                //       Navigator.of(context).push(
-                                //           MaterialPageRoute(
-                                //               builder: (context) =>
-                                //                   askaquestion()));
-                                //     },
-                                //     child: Admin_selection(
-                                //       image: 'assets/images/consultancy.png',
-                                //       title: 'Ask a Question',
-                                //     ),
-                                //   ),
-                                // ),
 
-                                // Padding(
-                                //   padding: const EdgeInsets.all(8.0),
-                                //   child: GestureDetector(
-                                //     onTap: () {
-                                //       Navigator.of(context).push(
-                                //           MaterialPageRoute(
-                                //               builder: (context) =>
-                                //                   DoctorProfilePage()));
-                                //     },
-                                //     child: Admin_selection(
-                                //       image: 'assets/images/lookup.png',
-                                //       title: 'Doctor Lookup',
-                                //       ontap: () {
-                                //         //  initiatePhoneCall('tel:$_phone');
-                                //       },
-                                //     ),
-                                //   ),
-                                // ),
-
-
+                                //
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                          builder: (context) => const postdrug()));
+                                    },
+                                    child: Admin_selection(
+                                      image: 'assets/images/post.jpg',
+                                      title: 'Post Drug',
+                                      ontap: () {
+                                        Navigator.of(context).push(MaterialPageRoute(
+                                            builder: (context) => const postdrug()));
+                                      },
+                                    ),
+                                  ),
+                                ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Admin_selection(
                                     image: 'assets/images/faq.png',
-                                    title: 'FAQs',
+                                    title: '',
                                     ontap: () {
-                                      // Navigator.of(context).push(MaterialPageRoute(
-                                      //     builder: (context) => polls()));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                          builder: (context) => postdrug()));
                                     },
                                   ),
                                 ),
@@ -198,140 +175,7 @@ class _homepageState extends State<homepage> {
                         padding: EdgeInsets.all(10),
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          // GestureDetector(
-                          //   onTap: () {
-                          //     Navigator.of(context).push(MaterialPageRoute(
-                          //         builder: (context) => Dentist()));
-                          //   },
-                          //   child: Padding(
-                          //     padding: const EdgeInsets.all(8.0),
-                          //     child: Container(
-                          //       width: 180,
-                          //       child: Row(
-                          //         children: [
-                          //           Image.asset("assets/images/tooth.png",
-                          //               height: 120),
-                          //           Center(
-                          //               child: Text(
-                          //                 "Dentist",
-                          //                 style: TextStyle(
-                          //                     color: Colors.white,
-                          //                     fontWeight: FontWeight.bold,
-                          //                     fontSize: 16),
-                          //               )),
-                          //         ],
-                          //       ),
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xFFB3CA2E6),
-                          //         borderRadius: BorderRadius.only(
-                          //             topRight: Radius.circular(25),
-                          //             topLeft: Radius.circular(25),
-                          //             bottomLeft: Radius.circular(25),
-                          //             bottomRight: Radius.circular(25)),
-                          //         boxShadow: [
-                          //           BoxShadow(
-                          //             color: Colors.grey.withOpacity(0.5),
-                          //             spreadRadius: 5,
-                          //             blurRadius: 7,
-                          //             offset: Offset(
-                          //                 0, 3), // changes position of shadow
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                          // Padding(
-                          //   padding: const EdgeInsets.all(8.0),
-                          //   child: GestureDetector(
-                          //     onTap: () {
-                          //       Navigator.of(context).push(MaterialPageRoute(
-                          //           builder: (context) => pharmacy()));
-                          //     },
-                          //     child: Container(
-                          //       width: 180,
-                          //       child: Row(
-                          //         children: [
-                          //           Image.asset("assets/images/pill.png",
-                          //               height: 60),
-                          //           Center(
-                          //               child: Text(
-                          //                 "Pharmacy",
-                          //                 style: TextStyle(
-                          //                     color: Colors.white,
-                          //                     fontWeight: FontWeight.bold,
-                          //                     fontSize: 16),
-                          //               )),
-                          //         ],
-                          //       ),
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xFFB3CA2E6),
-                          //         borderRadius: BorderRadius.only(
-                          //             topRight: Radius.circular(25),
-                          //             topLeft: Radius.circular(25),
-                          //             bottomLeft: Radius.circular(25),
-                          //             bottomRight: Radius.circular(25)),
-                          //         boxShadow: [
-                          //           BoxShadow(
-                          //             color: Colors.black26,
-                          //             spreadRadius: 5,
-                          //             blurRadius: 7,
-                          //             offset: Offset(
-                          //                 0, 3), // changes position of shadow
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                          // Padding(
-                          //   padding: const EdgeInsets.all(8.0),
-                          //   child: GestureDetector(
-                          //     onTap: () {
-                          //       Navigator.of(context).push(MaterialPageRoute(
-                          //           builder: (context) => Gynecology()));
-                          //     },
-                          //     child: Container(
-                          //       width: 180,
-                          //
-                          //       child: Center(
-                          //           child: SingleChildScrollView(
-                          //             scrollDirection: Axis.horizontal,
-                          //             child: Row(
-                          //               children: [
-                          //                 Image.asset("assets/images/gyn.png",
-                          //                     height: 80),
-                          //                 Text(
-                          //                   "Gynecology",
-                          //                   style: TextStyle(
-                          //                       color: Colors.white,
-                          //                       fontWeight: FontWeight.bold,
-                          //                       fontSize: 16),
-                          //                 ),
-                          //               ],
-                          //             ),
-                          //           )),
-                          //       // color: Colors.white38,
-                          //       decoration: BoxDecoration(
-                          //         color: Color(0xFFB3CA2E6),
-                          //         borderRadius: BorderRadius.only(
-                          //             topRight: Radius.circular(25),
-                          //             topLeft: Radius.circular(25),
-                          //             bottomLeft: Radius.circular(25),
-                          //             bottomRight: Radius.circular(25)),
-                          //         boxShadow: [
-                          //           BoxShadow(
-                          //             color: Colors.grey.withOpacity(0.5),
-                          //             spreadRadius: 5,
-                          //             blurRadius: 7,
-                          //             offset: Offset(
-                          //                 0, 3), // changes position of shadow
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
+
                         ],
                       ),
                     ),

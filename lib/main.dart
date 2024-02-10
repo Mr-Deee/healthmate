@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:healthmate/Screens/Homepage.dart';
+import 'package:healthmate/Screens/postdrug.dart';
 import 'package:provider/provider.dart';
 
 import 'Models/Users.dart';
@@ -56,12 +57,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
         initialRoute: FirebaseAuth.instance.currentUser == null
-            ? '/SignUp'
-            : '/login',
+            ? '/login'
+            : '/Homepage',
         routes: {
 
           // "/splash": (context) => SplashScreen(),
           "/login": (context) => LoginScreen(),
+          "/postdrug": (context) => postdrug(),
           // "/search": (context) => SearchScreen(),
           "/SignUp": (context) => SignUpScreen(),
         "/Homepage": (context) =>homepage(),

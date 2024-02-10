@@ -43,6 +43,7 @@ dependencies:
   permission_handler: ^10.0.0
   animate_do: ^2.0.0
   bouncing_widget: ^2.0.0
+  image_picker: ^1.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
