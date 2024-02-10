@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -137,6 +138,39 @@ class _postdrugState extends State<postdrug> {
       // Ensure all fields are filled
       return;
     }
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Dialog(
+              backgroundColor: Colors.transparent,
+              child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(40.0)),
+                  child: Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 6.0,
+                            ),
+                            CircularProgressIndicator(
+                              valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.black),
+                            ),
+                            SizedBox(
+                              width: 26.0,
+                            ),
+                            Text("Loging In,please wait")
+                          ],
+                        ),
+                      ))));
+        });
 
     Reference storageReference =
     FirebaseStorage.instance.ref().child('images/${DateTime.now().toString()}');
@@ -144,8 +178,8 @@ class _postdrugState extends State<postdrug> {
     await uploadTask.whenComplete(() => null);
     String imageUrl = await storageReference.getDownloadURL();
 
-    final databaseReference = FirebaseDatabase.instance.ref();
-    Usersdb.child("medicines").update({
+     var dbauth = FirebaseAuth.instance.currentUser?.uid;
+    Usersdb.child(dbauth!).child("medicines").update({
       'drugName': drugName,
       'dosage': dosage,
       'imageUrl': imageUrl,
