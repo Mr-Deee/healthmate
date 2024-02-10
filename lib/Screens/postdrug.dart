@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_database/firebase_database.dart';
+import 'pac';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -56,7 +58,10 @@ class _postdrugState extends State<postdrug> {
             padding: const EdgeInsets.all(18.0),
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(23), color: Colors.black),
+                borderRadius: BorderRadius.circular(23),
+                  color: Colors.white60,
+
+              ),
               child: Padding(
                 padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                 child: Row(
@@ -114,6 +119,35 @@ class _postdrugState extends State<postdrug> {
   File? _image;
 
   final picker = ImagePicker();
+  Future<void> _uploadData() async {
+    String drugName = _drugNameController.text;
+    String dosage = _dosageController.text;
+
+    if (_image == null || drugName.isEmpty || dosage.isEmpty) {
+      // Ensure all fields are filled
+      return;
+    }
+
+    Reference storageReference =
+    FirebaseStorage.instance.ref().child('images/${DateTime.now().toString()}');
+    UploadTask uploadTask = storageReference.putFile(_image!);
+    await uploadTask.whenComplete(() => null);
+    String imageUrl = await storageReference.getDownloadURL();
+
+    final databaseReference = FirebaseDatabase.instance.ref();
+    databaseReference.child("medicines").push().set({
+      'drugName': drugName,
+      'dosage': dosage,
+      'imageUrl': imageUrl,
+    });
+
+    // Clear the text fields and image after uploading
+    _drugNameController.clear();
+    _dosageController.clear();
+    setState(() {
+      _image = null;
+    });
+  }
 
   Future getImage(ImageSource source) async {
     final pickedFile = await picker.pickImage(source: source);
