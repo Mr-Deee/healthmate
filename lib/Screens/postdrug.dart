@@ -21,7 +21,7 @@ class _postdrugState extends State<postdrug> {
                 ? Text('No image selected.')
                 : Image.file(_image!),
           ),
-           Column(
+           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               FloatingActionButton(
